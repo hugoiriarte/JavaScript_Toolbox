@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <!--
+      JavaScript WA120
+	  Capstone Project
+      Author: Hugo Iriarte
+      Date: 7/3/18
+
+      Filename: toolbox.htm
+   -->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>JavaScript Toolbox</title>
+	<link rel="stylesheet" href="styles.css" />
+	<script>
+		//setting global variables to be used inside of processInput function
+		var i = 1;
+		var listItem = "";
+		
+		function processInput(){
+			if(i <=5){
+				var listItem = "item" + i;
+				//takes the value user inputs and puts it onto the html page
+				document.getElementById(listItem).innerHTML = document.getElementById("toolBox").value;
+				document.getElementById("toolBox").value = "";
+			// once all 5 values have been put user gets a message within the HTML page	
+			if(i == 5){
+				document.getElementById("resultsFin").innerHTML = "Thanks for your suggestions.";
+				}
+			i++;
+			}
+		}		
+	</script>
+</head>
+<body>
+   <header>
+      <h1>
+         JavaScript ToolBox
+      </h1>
+   </header>
+
+   <article>
+      <div id="results">
+          <ul>
+             <li id="item1"></li>
+             <li id="item2"></li>
+             <li id="item3"></li>
+             <li id="item4"></li>
+             <li id="item5"></li>
+          </ul>
+          <p id="resultsFin"></p>
+      </div>
+      <form>
+          <fieldset>
+            <label for="toolBox" id="placeLabel">
+              Type the name of a tool, then click Submit:
+            </label>
+            <input type="text" id="toolBox" />			
+          </fieldset>
+          <fieldset>
+		  <!--process the function once button has been clicked-->
+            <button type="button" id="button" onclick="processInput()">Submit</button>
+          </fieldset>
+      </form>
+   </article>
+</body>
+</html>
